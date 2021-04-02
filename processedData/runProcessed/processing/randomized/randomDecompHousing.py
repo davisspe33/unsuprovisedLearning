@@ -15,7 +15,7 @@ def transformData():
     y = data['MEDV']
     y = y.astype('int')
 
-    transformer = random_projection.GaussianRandomProjection(n_components=7)
+    transformer = random_projection.GaussianRandomProjection(n_components=10)
     X_transformed = transformer.fit_transform(x)
     return(X_transformed,y)
 

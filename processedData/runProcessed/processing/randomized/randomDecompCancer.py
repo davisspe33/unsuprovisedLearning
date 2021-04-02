@@ -13,7 +13,7 @@ def transformData():
     x = x.drop(['diagnosis','id'], axis=1)
     le = LabelEncoder() 
     y = le.fit_transform(data['diagnosis'])
-    transformer = random_projection.GaussianRandomProjection(n_components=7)
+    transformer = random_projection.GaussianRandomProjection(n_components=25)
     X_transformed = transformer.fit_transform(x)
     return(X_transformed,y)
 

@@ -18,5 +18,29 @@ def transformData():
     X_transformed = transformer.fit_transform(x)
     return(X_transformed,y)
 
+def graphVaraiance(): 
+    data = pd.read_csv('HousingData.csv') 
+    data = data.fillna(0)
+    x = data
+    x = x.drop(['MEDV'], axis=1)
+    print(x.shape)
+    variance=[]
+    for i in range(1,14):
+        transformer = PCA(n_components=i)
+        transformer.fit_transform(x)
+        l = transformer.explained_variance_ratio_
+        variance.append(sum(l)/len(l))
+    
 
+    
+    plt.grid()
+    param_range=np.linspace(1, 13, len(variance))
+    plt.plot(param_range, variance, label="PCA",color="green", lw=2)
+    plt.legend(loc="best")
+    plt.xlabel("number of features")
+    plt.ylabel("Varance")
+    plt.suptitle('HousingPCA')
+    plt.show()
+
+#graphVaraiance()
 # transformData()

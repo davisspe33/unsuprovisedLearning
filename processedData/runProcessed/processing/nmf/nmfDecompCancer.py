@@ -15,7 +15,7 @@ def transformData():
     y = le.fit_transform(data['diagnosis'])
 
 
-    transformer = NMF(n_components=10)
+    transformer = NMF(n_components=15)
     X_transformed = transformer.fit_transform(x)
     return(X_transformed,y)
 

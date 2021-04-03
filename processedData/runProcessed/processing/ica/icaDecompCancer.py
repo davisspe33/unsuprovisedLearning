@@ -13,7 +13,7 @@ def transformData():
     x = x.drop(['diagnosis','id'], axis=1)
     le = LabelEncoder() 
     y = le.fit_transform(data['diagnosis'])
-    transformer = FastICA(n_components=25)
+    transformer = FastICA(n_components=10)
     X_transformed = transformer.fit_transform(x)
     return(X_transformed,y)
 

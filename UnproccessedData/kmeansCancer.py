@@ -33,7 +33,7 @@ def plotnCluster(x,y):
     param_range= np.linspace(1, 100, num=100)
     accuracy=[]
     times=[]
-    for n in range(1,10):
+    for n in range(1,11):
         start = datetime.datetime.now()   
         y_predict = KMeans(n_clusters=n).fit_predict(x)
         y_test_accuracy = metrics.rand_score(y, y_predict)
@@ -51,7 +51,7 @@ def plotnCluster(x,y):
     axes[0].set_xlabel("number of clusters")
     axes[0].set_ylabel("Accuracy score %")
     axes[1].grid()
-    param_range=np.linspace(1, 50, len(times))
+    param_range=np.linspace(1, 10, len(times))
     axes[1].plot(param_range, times, label="kmeans",color="blue", lw=2)
     axes[1].legend(loc="best")
     axes[1].set_xlabel("number of clusters")

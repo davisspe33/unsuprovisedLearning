@@ -14,7 +14,7 @@ def transformData():
     le = LabelEncoder() 
     y = le.fit_transform(data['diagnosis'])
 
-    transformer = PCA(n_components=7)
+    transformer = PCA(n_components=15)
     X_transformed = transformer.fit_transform(x)
     return(X_transformed,y)
 
